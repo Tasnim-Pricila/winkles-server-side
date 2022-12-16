@@ -4,6 +4,9 @@ const orderRoute = express.Router();
 
 orderRoute.route('/')
     .post(orderController.createOrder)
+    .get(orderController.getOrders)
+orderRoute.route('/:email')
+    .get(orderController.getOrderByEmail)
 
 
 module.exports = orderRoute;

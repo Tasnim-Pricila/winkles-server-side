@@ -1,4 +1,4 @@
-const { createProductServices, getProductServices, getProductServicesById } = require("../services/product.services");
+const { createProductServices, getProductServices, getProductServicesById, updateProductServices, deleteProductServices } = require("../services/product.services");
 
 exports.getProducts = async (req, res, next) => {
     try {
@@ -89,4 +89,39 @@ exports.getProductById = async(req, res, next) => {
     }
 }
 
+exports.updateProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const result = await updateProductServices(id, req.body);
 
+        res.status(200).send({
+            status: 'success',
+            message: "product Updated Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "product Update Failed.",
+            error: error.message
+        })
+    }
+}
+exports.deleteProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const result = await deleteProductServices(id);
+
+        res.status(200).send({
+            status: 'success',
+            message: "Product Deleted Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "Product Deletion Failed.",
+            error: error.message
+        })
+    }
+}

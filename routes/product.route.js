@@ -7,5 +7,7 @@ productRoute.route('/')
     .post(productController.createProduct)
 productRoute.route('/:id')
     .get(productController.getProductById)
+    .patch(productController.updateProduct)
+    .delete(productController.deleteProduct)
 
 module.exports = productRoute;

@@ -19,3 +19,13 @@ exports.getProductServicesById = async (id) => {
     const result = await Product.findOne({_id: id});
     return result;
 }
+exports.updateProductServices = async (id, data) => {
+    const result = await Product.updateOne({ _id: id }, { $set: data }, {
+        runValidators: true
+    });
+    return result;
+}
+exports.deleteProductServices = async (id) => {
+    const result = await Product.deleteOne({ _id: id });
+    return result;
+}
