@@ -1,4 +1,4 @@
-const { signupService, findUserByEmail, getUserServices, updateUserServices } = require("../services/user.services");
+const { signupService, findUserByEmail, getUserServices, updateUserServices, updateUserServicesbyId } = require("../services/user.services");
 const { generateToken } = require("../utils/token");
 
 exports.signup = async (req, res, next) => {
@@ -126,7 +126,7 @@ exports.updateUser = async (req, res, next) => {
 exports.updateUserById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const result = await updateUserServices(id, req.body);
+        const result = await updateUserServicesbyId(id, req.body);
         res.status(200).send({
             status: 'success',
             message: "user Updated Successfully.",
