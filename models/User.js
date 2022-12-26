@@ -46,21 +46,21 @@ const userSchema = mongoose.Schema({
     },
     firstName: {
         type: String,
-        // required: [true, "First name is required"],
+        required: [true, "First name is required"],
         trim: true,
-        // minLength: [3, "Name must be at least 3 characters."],
-        // maxLength: [100, "Name is too large."],
+        minLength: [3, "Name must be at least 3 characters."],
+        maxLength: [100, "Name is too large."],
     },
     lastName: {
         type: String,
-        // required: [true, "Last name is required"],
+        required: [true, "Last name is required"],
         trim: true,
-        // minLength: [3, "Name must be at least 3 characters."],
-        // maxLength: [100, "Name is too large."],
+        minLength: [3, "Name must be at least 3 characters."],
+        maxLength: [100, "Name is too large."],
     },
     phone: {
         type: String,
-        // validate: [validator.isMobilePhone, "Please provide a valid phone number"]
+        validate: [validator.isMobilePhone, "Please provide a valid phone number"]
     },
     address: {
         type: String
@@ -70,7 +70,7 @@ const userSchema = mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        // validate: [validator.isURL, "Please provide a valid url"]
+        validate: [validator.isURL, "Please provide a valid url"]
     },
     status: {
         type: String,
