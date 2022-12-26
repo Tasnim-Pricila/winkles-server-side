@@ -19,3 +19,9 @@ exports.updateUserServices = async (email, data) => {
     });
     return result;
 }
+exports.updateUserServicesbyId = async (id, data) => {
+    const result = await User.updateOne({ _id : id }, { $set: data }, {
+        runValidators: true
+    });
+    return result;
+}

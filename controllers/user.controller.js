@@ -123,3 +123,20 @@ exports.updateUser = async (req, res, next) => {
         })
     }
 }
+exports.updateUserById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const result = await updateUserServices(id, req.body);
+        res.status(200).send({
+            status: 'success',
+            message: "user Updated Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "user Update Failed.",
+            error: error.message
+        })
+    }
+}

@@ -5,6 +5,7 @@ const userRoute = express.Router();
 
 userRoute.post('/signup', userController.signup)
 userRoute.post('/login', userController.login)
+userRoute.patch('/update/:id', userController.updateUserById)
 userRoute.get('/me', verifyToken, userController.getMe)
 userRoute.patch('/me', verifyToken, userController.updateUser)
 userRoute.get('/', userController.getUsers)
