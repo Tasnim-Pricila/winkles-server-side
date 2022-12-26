@@ -13,3 +13,9 @@ exports.getUserServices = async () => {
     const count = await User.count();
     return {count, result};
 }
+exports.updateUserServices = async (email, data) => {
+    const result = await User.updateOne({email : email }, { $set: data }, {
+        runValidators: true
+    });
+    return result;
+}

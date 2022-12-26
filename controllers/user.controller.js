@@ -1,4 +1,4 @@
-const { signupService, findUserByEmail, getUserServices } = require("../services/user.services");
+const { signupService, findUserByEmail, getUserServices, updateUserServices } = require("../services/user.services");
 const { generateToken } = require("../utils/token");
 
 exports.signup = async (req, res, next) => {
@@ -102,6 +102,23 @@ exports.getUsers = async(req, res, next) => {
         res.status(400).send({
             status: 'fail',
             message: "Could not find any Users",
+            error: error.message
+        })
+    }
+}
+
+exports.updateUser = async (req, res, next) => {
+    try {
+        const result = await updateUserServices(req.user?.email, req.body);
+        res.status(200).send({
+            status: 'success',
+            message: "user Updated Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "user Update Failed.",
             error: error.message
         })
     }

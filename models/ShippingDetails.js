@@ -26,7 +26,10 @@ const shippingDetailsSchema = mongoose.Schema({
         type: String,
     }
 }, {
-    timestamps: true
+    timestamps: {
+        // type: Number,
+        default: new Date().toDateString()
+    }
 });
 
 const Orders = mongoose.model("Orders", shippingDetailsSchema);

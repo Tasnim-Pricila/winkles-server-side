@@ -33,6 +33,7 @@ exports.getOrders = async(req, res, next) => {
     }
 }
 
+
 exports.getOrderByEmail = async(req, res, next) => {
     const { email } = req.params;
     try {
@@ -57,3 +58,4 @@ exports.getOrderByEmail = async(req, res, next) => {
         })
     }
 }
+
