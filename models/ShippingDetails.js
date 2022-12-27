@@ -35,15 +35,24 @@ const shippingDetailsSchema = mongoose.Schema({
         required: true
     },
     products: [{
-        title: String,
-        price: Number,
-        qty: Number,
+        title: {
+            type: String,
+            required: true
+        },
+        price: {
+            type: Number,
+            required: true
+        },
+        qty: {
+            type: Number,
+            required: true
+        },
         brand: String,
         category: String
     }]
 }, {
     timestamps: {
-        // type: Number,
+        type: Number,
         default: new Date().toDateString()
     }
 });
