@@ -24,6 +24,19 @@ const shippingDetailsSchema = mongoose.Schema({
     },
     notes: {
         type: String,
+    },
+    amount: {
+        type: Number,
+        min: [0, "Price can not be less than 0"],
+        required: true,
+    },
+    deliveryStatus: {
+        type: String,
+        required: true
+    },
+    products: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: {
