@@ -38,6 +38,10 @@ const shippingDetailsSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    paymentStatus: {
+        type: String,
+        required: true
+    },
     products: [{
         title: {
             type: String,
