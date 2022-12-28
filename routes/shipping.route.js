@@ -7,6 +7,8 @@ orderRoute.route('/')
     .get(orderController.getOrders)
 orderRoute.route('/:email')
     .get(orderController.getOrderByEmail)
-
+orderRoute.route('/:id')
+    .patch(orderController.updateOrder)
+    .delete(orderController.deleteOrder)
 
 module.exports = orderRoute;

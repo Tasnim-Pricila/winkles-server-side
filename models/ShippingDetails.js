@@ -42,6 +42,15 @@ const shippingDetailsSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    orderStatus: {
+        type: String,
+        required: true,
+        default: 'Pending',
+        enum: {
+            values: ['Completed', 'Pending', 'Cancelled'],
+            message: "status can not be {VALUE}, should be 'Completed', 'Pending' or 'Cancelled'"
+        },
+    },
     products: [{
         title: {
             type: String,
