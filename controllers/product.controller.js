@@ -23,7 +23,6 @@ exports.getProducts = async (req, res, next) => {
             queries.skip = skip;
             queries.limit = +limit;
         }
-        // console.log(queries)
         // gt, gte, lt, lte 
         let filterString = JSON.stringify(filters);
         filterString = filterString.replace(/\b(gt|gte|lt|lte)\b/g , match => `$${match}`)
