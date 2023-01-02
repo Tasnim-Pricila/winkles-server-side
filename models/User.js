@@ -40,7 +40,7 @@ const userSchema = mongoose.Schema({
     role: {
         type: String,
         enum: {
-            values: ["user", "admin"],
+            values: ["user", "admin", "moderator"],
             message: "Role can't be {VALUE}, must be buyer/store-manager/admin",
         }
     },
