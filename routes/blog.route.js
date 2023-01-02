@@ -7,5 +7,7 @@ blogRoute.route('/')
     .get(blogController.getBlogs)
 blogRoute.route('/:id')
     .get(blogController.getBlogById)
+    .patch(blogController.updateBlog)
+    .delete(blogController.deleteBlog)
 
 module.exports = blogRoute;

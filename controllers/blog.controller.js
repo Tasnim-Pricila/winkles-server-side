@@ -1,4 +1,4 @@
-const { createBlogServices, getBlogServices, getBlogServicesById } = require("../services/blog.services");
+const { createBlogServices, getBlogServices, getBlogServicesById, deleteBlogServices, updateBlogServices } = require("../services/blog.services");
 
 exports.createBlog = async(req, res, next) => {
     try {
@@ -56,3 +56,40 @@ exports.getBlogById = async(req, res, next) => {
         })
     }
 }
+exports.updateBlog = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const result = await updateBlogServices(id, req.body);
+
+        res.status(200).send({
+            status: 'success',
+            message: "Blog Updated Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "Blog Update Failed.",
+            error: error.message
+        })
+    }
+}
+exports.deleteBlog = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const result = await deleteBlogServices(id);
+
+        res.status(200).send({
+            status: 'success',
+            message: "Blog Deleted Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "Blog Deletion Failed.",
+            error: error.message
+        })
+    }
+}
+
