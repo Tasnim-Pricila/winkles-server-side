@@ -15,9 +15,9 @@ const blogSchema = mongoose.Schema({
     },
     description: {
         type: String,
-        required: [true, "Please provide a name for this product."],
+        required: [true, "Please provide a description for this product."],
         trim: true,
-        minLength: [30, "Name must be at least 3 characters."],
+        minLength: [30, "Name must be at least 30 characters."],
         maxLength: [500, "Name is too large."],
     },
     imageUrl: {
@@ -27,10 +27,9 @@ const blogSchema = mongoose.Schema({
     },
     createdAt: {
         type: String,
-        required: true
+        // required: true
     }
 });
 
 const Blog = mongoose.model("Blog", blogSchema);
-
 module.exports = Blog;

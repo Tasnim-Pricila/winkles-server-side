@@ -124,3 +124,19 @@ exports.deleteProduct = async (req, res, next) => {
         })
     }
 }
+
+exports.fileUpload =  async (req, res) => {
+    try {
+        res.status(200).send({
+            status: 'success',
+            message: "Data uploaded Successfully.",
+            data: req.files
+        });
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "File upload Failed.",
+            error: error.message
+        })
+    }
+}
