@@ -130,7 +130,8 @@ exports.fileUpload =  async (req, res) => {
         res.status(200).send({
             status: 'success',
             message: "Data uploaded Successfully.",
-            data: req.files
+            data: req.file,
+            url: `http://localhost:5000/image/${req.file.filename}`,
         });
     } catch (error) {
         res.status(400).send({

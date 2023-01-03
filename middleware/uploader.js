@@ -2,7 +2,7 @@ const multer = require('multer');
 const path = require('path');
 
 const storage = multer.diskStorage ({
-    destination: "product-images/",
+    destination: path.join('image'),
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.random(Math.random * 1E9)
         cb(null, uniqueSuffix + "-" + file.originalname)
