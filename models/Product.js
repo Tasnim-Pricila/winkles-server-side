@@ -44,7 +44,13 @@ const productSchema = mongoose.Schema({
     image: [{
         type: String,
         required: true,
-        // validate: [validator.isURL, "Please provide valid url"]
+        validate: [validator.isURL, "Please provide valid url"]
+    }],
+
+    imageGallery: [{
+        type: String,
+        required: true,
+        validate: [validator.isURL, "Please provide valid url"]
     }],
 
     // category: {
