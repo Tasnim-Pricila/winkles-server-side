@@ -47,24 +47,20 @@ const productSchema = mongoose.Schema({
         validate: [validator.isURL, "Please provide valid url"]
     },
 
-    imageGallery: [{
+    imageGallery: {
         type: String,
         required: true,
         validate: [validator.isURL, "Please provide valid url"]
-    }],
+        // title: {
+        //     type: String,
+        // },
+        // image : [{
+        //     type: String,
+        //     required: true,
+        //     validate: [validator.isURL, "Please provide valid url"]
+        // }]
+    },
 
-    // category: {
-    //     name: {
-    //         type: String,
-    //         required: true
-    //     },
-    //     id: {
-    //         type: ObjectId,
-    //         ref: "Category",
-    //         required: true
-    //     }
-    // },
-    
     category: {
         type: String,
         required: true
@@ -73,17 +69,7 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // brand: {
-    //     name: {
-    //         type: String,
-    //         required: true
-    //     },
-    //     id: {
-    //         type: ObjectId,
-    //         ref: "Brand",
-    //         required: true
-    //     }
-    // },
+
     stock: {
         type: String,
         required: true,
