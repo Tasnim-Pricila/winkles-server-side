@@ -41,11 +41,11 @@ const productSchema = mongoose.Schema({
         }
     },
 
-    image: [{
+    image: {
         type: String,
         required: true,
         validate: [validator.isURL, "Please provide valid url"]
-    }],
+    },
 
     imageGallery: [{
         type: String,
