@@ -56,11 +56,11 @@ const productSchema = mongoose.Schema({
         details: [{
             name: {
                 type: String,
-                required: true,
+                // required: true,
             },
             size: {
                 type: Number,
-                required: true,
+                // required: true,
             }
         }]
 
