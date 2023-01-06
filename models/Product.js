@@ -54,8 +54,15 @@ const productSchema = mongoose.Schema({
             validate: [validator.isURL, "Please provide valid url"]
         }],
         details: [{
-            type: String,
-            required: true
+            name: {
+                type: String,
+                required: true
+            },
+            size: {
+                type: Number,
+                required: true
+            }
+
         }]
 
     },
