@@ -47,6 +47,7 @@ const productSchema = mongoose.Schema({
         validate: [validator.isURL, "Please provide valid url"]
     },
 
+
     imageGallery: [{
         type: String,
         required: true,
@@ -71,6 +72,11 @@ const productSchema = mongoose.Schema({
         },
         default: 'In Stock'
     },
+    
+    reviews: [{
+        type: ObjectId,
+        ref: 'Review'
+    }]
 
 }, {
     timestamps: true

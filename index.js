@@ -10,6 +10,7 @@ const userRoute = require('./routes/user.route');
 const blogRoute = require('./routes/blog.route');
 const port = process.env.PORT || 8080;
 const path = require('path');
+const reviewRoute = require('./routes/review.route');
 
 const app = express();
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use('/blogs', blogRoute)
 app.use('/categories', categoryRoute)
 app.use('/orders', orderRoute)
 app.use('/users', userRoute)
+app.use('/reviews', reviewRoute)
 
 
 app.listen(port, () => {

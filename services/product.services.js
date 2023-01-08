@@ -6,6 +6,7 @@ exports.getProductServices = async (filters, queries) => {
         .select(queries.fields)
         .skip(queries.skip)
         .limit(queries.limit)
+        
     // const result = await Product.find({ brand: { $in: ['Style Echo', 'Jens'] }})
         
     const count = await Product.countDocuments(filters)
@@ -16,7 +17,7 @@ exports.createProductServices = async (data) => {
     return result;
 }
 exports.getProductServicesById = async (id) => {
-    const result = await Product.findOne({_id: id});
+    const result = await Product.findOne({_id: id}).populate('reviews');
     return result;
 }
 exports.updateProductServices = async (id, data) => {
