@@ -72,11 +72,13 @@ const productSchema = mongoose.Schema({
         },
         default: 'In Stock'
     },
-    
+
     reviews: [{
         type: ObjectId,
         ref: 'Review'
-    }]
+    }],
+
+   
 
 }, {
     timestamps: true

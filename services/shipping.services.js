@@ -1,7 +1,14 @@
+const Payment = require("../models/Payment");
 const Orders = require("../models/ShippingDetails");
 
 exports.createOrderServices = async (data) => {
     const result = await Orders.create(data);
+    const { payment , _id } = result;
+    const insertPayment = await Payment.updateOne( 
+        { transactionID: payment.transactionID},
+        { $push: { orderId: _id } }
+    )
+    // console.log(insertPayment);
     return result;
 }
 
