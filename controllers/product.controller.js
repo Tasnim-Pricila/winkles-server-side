@@ -18,11 +18,14 @@ exports.getProducts = async (req, res, next) => {
             queries.fields = fields; 
         }
         if(req.query.page){
-            const { page=1 , limit=5 } = req.query;
+            const { page , limit } = req.query;
+            // console.log(page)
             const skip = (page - 1) * +limit;
+            // console.log(skip);
             queries.skip = skip;
             queries.limit = +limit;
         }
+        // console.log(req.query);
         // gt, gte, lt, lte 
         let filterString = JSON.stringify(filters);
         filterString = filterString.replace(/\b(gt|gte|lt|lte)\b/g , match => `$${match}`)
