@@ -5,7 +5,8 @@ exports.signupService = async (userInfo) => {
     return user;
 }
 exports.findUserByEmail = async (email) => {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email })
+    // .populate('cart.product');
     return user;
 }
 exports.getUserServices = async () => {

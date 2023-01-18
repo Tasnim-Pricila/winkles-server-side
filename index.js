@@ -12,6 +12,7 @@ const blogRoute = require('./routes/blog.route');
 const port = process.env.PORT || 8080;
 const reviewRoute = require('./routes/review.route');
 const paymentRoute = require('./routes/payment.route');
+const cartRoute = require('./routes/cart.route');
 
 const app = express();
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use('/orders', orderRoute)
 app.use('/users', userRoute)
 app.use('/reviews', reviewRoute)
 app.use('/payment', paymentRoute)
+app.use('/cart', cartRoute)
 
 
 app.listen(port, () => {

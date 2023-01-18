@@ -28,7 +28,7 @@ const productSchema = mongoose.Schema({
 
     quantity: {
         type: Number,
-        minLength: [0, "Price can not be less than 0"],
+        minLength: [0, "Quantity can not be less than 0"],
         required: true,
     },
 
@@ -40,14 +40,11 @@ const productSchema = mongoose.Schema({
             message: "quantity value can't be {VALUE}, must be pcs",
         }
     },
-
     image: {
         type: String,
         required: true,
         validate: [validator.isURL, "Please provide valid url"]
     },
-
-
     imageGallery: [{
         type: String,
         required: true,
@@ -62,7 +59,6 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-
     stock: {
         type: String,
         required: true,
@@ -72,14 +68,10 @@ const productSchema = mongoose.Schema({
         },
         default: 'In Stock'
     },
-
     reviews: [{
         type: ObjectId,
         ref: 'Review'
     }],
-
-   
-
 }, {
     timestamps: true
 })

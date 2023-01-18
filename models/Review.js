@@ -24,7 +24,6 @@ const reviewSchema = mongoose.Schema({
         ref: "Product",
         required: true
     }
-
 }, {
     timestamps: true
 });

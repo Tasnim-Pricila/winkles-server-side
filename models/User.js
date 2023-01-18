@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const validator = require('validator');
 
@@ -80,6 +81,32 @@ const userSchema = mongoose.Schema({
         },
         default: 'active'
     },
+    cart: {
+        product: [{
+            _id: {
+                type: String,
+                required: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            },
+            qty: {
+                type: Number,
+                required: true
+            },
+            quantity: Number,
+            brand: String,
+            category: String,
+            image: String
+        }],
+
+    },
+
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
