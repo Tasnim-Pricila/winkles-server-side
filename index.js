@@ -35,8 +35,6 @@ app.use('/orders', orderRoute)
 app.use('/users', userRoute)
 app.use('/reviews', reviewRoute)
 app.use('/payment', paymentRoute)
-app.use('/cart', cartRoute)
-
 
 app.listen(port, () => {
     console.log(`App is running on port ${port}`.white.bold);
