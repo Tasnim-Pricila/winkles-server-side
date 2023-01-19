@@ -10,6 +10,8 @@ userRoute.patch('/update/:id', userController.updateUserById)
 
 userRoute.get('/me', verifyToken, userController.getMe)
 userRoute.patch('/me', verifyToken, userController.updateUser)
+userRoute.patch('/me/:productId', userController.updateProduct)
+userRoute.delete('/me/:productId', userController.deleteProduct)
 
 
 

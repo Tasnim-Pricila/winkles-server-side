@@ -1,4 +1,4 @@
-const { signupService, findUserByEmail, getUserServices, updateUserServices, updateUserServicesbyId } = require("../services/user.services");
+const { signupService, findUserByEmail, getUserServices, updateUserServices, updateUserServicesbyId, updateProductById, deleteProductById } = require("../services/user.services");
 const { generateToken } = require("../utils/token");
 
 exports.signup = async (req, res, next) => {
@@ -136,6 +136,41 @@ exports.updateUserById = async (req, res, next) => {
         res.status(400).send({
             status: 'fail',
             message: "user Update Failed.",
+            error: error.message
+        })
+    }
+}
+exports.updateProduct = async (req, res, next) => {
+    try {
+        const { productId } = req.params;
+        // console.log(req.params, req.body)
+        const result = await updateProductById(productId, req.body);
+        res.status(200).send({
+            status: 'success',
+            message: "user Updated Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "user Update Failed.",
+            error: error.message
+        })
+    }
+}
+exports.deleteProduct = async (req, res, next) => {
+    try {
+        const { productId } = req.params;
+        const result = await deleteProductById(productId);
+        res.status(200).send({
+            status: 'success',
+            message: "product deleted Successfully.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "product deletion Failed.",
             error: error.message
         })
     }

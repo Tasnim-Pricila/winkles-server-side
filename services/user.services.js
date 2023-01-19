@@ -12,17 +12,51 @@ exports.findUserByEmail = async (email) => {
 exports.getUserServices = async () => {
     const result = await User.find({});
     const count = await User.count();
-    return {count, result};
+    return { count, result };
 }
 exports.updateUserServices = async (email, data) => {
-    const result = await User.updateOne({ email : email }, { $set: data }, {
+    const result = await User.updateOne({ email: email }, { $set: data }, {
         runValidators: true
     });
     return result;
 }
 exports.updateUserServicesbyId = async (id, data) => {
-    const result = await User.updateOne({ _id : id }, { $set: data }, {
+    const result = await User.updateOne({ _id: id }, { $set: data }, {
         runValidators: true
     });
+    return result;
+}
+exports.updateProductById = async (productId, data) => {
+    // console.log(data.qty);
+    let result
+    if (data.qty === 0) {
+        result = await User.findOneAndUpdate(
+            { 'cart.product._id': productId },
+            {
+                $pull: {
+                    'cart.product': { _id: productId }
+                }
+            },
+            {
+                new: true
+            });
+    }
+    else {
+        result = await User.findOneAndUpdate(
+            { 'cart.product._id': productId },
+            {
+                $set: {
+                    'cart.product.$': data
+                }
+            },
+            {
+                new: true
+            });
+    }
+    return result;
+}
+
+exports.deleteProductById = async (productId) => {
+    const result = await User.deleteOne({ 'cart.product._id': productId })
     return result;
 }
