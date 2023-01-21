@@ -158,20 +158,3 @@ exports.updateProduct = async (req, res, next) => {
         })
     }
 }
-exports.deleteProduct = async (req, res, next) => {
-    try {
-        const { productId } = req.params;
-        const result = await deleteProductById(productId);
-        res.status(200).send({
-            status: 'success',
-            message: "product deleted Successfully.",
-            data: result
-        })
-    } catch (error) {
-        res.status(400).send({
-            status: 'fail',
-            message: "product deletion Failed.",
-            error: error.message
-        })
-    }
-}

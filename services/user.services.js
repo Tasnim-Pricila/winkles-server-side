@@ -56,7 +56,3 @@ exports.updateProductById = async (productId, data) => {
     return result;
 }
 
-exports.deleteProductById = async (productId) => {
-    const result = await User.deleteOne({ 'cart.product._id': productId })
-    return result;
-}

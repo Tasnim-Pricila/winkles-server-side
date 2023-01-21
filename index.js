@@ -12,7 +12,6 @@ const blogRoute = require('./routes/blog.route');
 const port = process.env.PORT || 8080;
 const reviewRoute = require('./routes/review.route');
 const paymentRoute = require('./routes/payment.route');
-const cartRoute = require('./routes/cart.route');
 
 const app = express();
 app.use(express.json());
