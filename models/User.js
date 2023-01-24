@@ -61,7 +61,7 @@ const userSchema = mongoose.Schema({
     },
     phone: {
         type: String,
-        validate: [validator.isMobilePhone, "Please provide a valid phone number"]
+        // validate: [validator.isMobilePhone, "Please provide a valid phone number"]
     },
     address: {
         type: String
@@ -71,7 +71,7 @@ const userSchema = mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        validate: [validator.isURL, "Please provide a valid url"]
+        // validate: [validator.isURL, "Please provide a valid url"]
     },
     status: {
         type: String,
@@ -99,10 +99,16 @@ const userSchema = mongoose.Schema({
                 type: Number,
                 required: true
             },
-            quantity: Number,
+            quantity: {
+                type: Number,
+                required: true
+            },
+            image: {
+                type: String,
+                required: true,
+            },
             brand: String,
             category: String,
-            image: String
         }],
 
     },
