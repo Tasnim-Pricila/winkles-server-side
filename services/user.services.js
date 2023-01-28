@@ -5,7 +5,7 @@ exports.signupService = async (userInfo) => {
     return user;
 }
 exports.findUserByEmail = async (email) => {
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ email }).populate('wishlist.product')
     // .populate('cart.product');
     return user;
 }
@@ -14,6 +14,7 @@ exports.getUserServices = async () => {
     const count = await User.count();
     return { count, result };
 }
+
 exports.updateUserServices = async (email, data) => {
     const result = await User.updateOne({ email: email }, { $set: data }, {
         runValidators: true

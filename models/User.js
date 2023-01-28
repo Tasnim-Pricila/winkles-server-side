@@ -112,6 +112,13 @@ const userSchema = mongoose.Schema({
         }],
 
     },
+    wishlist: {
+        product: [{
+            type: ObjectId,
+            required: true,
+            ref: 'Product',
+        }]
+    },
 
     passwordChangedAt: Date,
     passwordResetToken: String,
