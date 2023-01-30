@@ -42,13 +42,13 @@ exports.getPayment = async(req, res, next) => {
         const result = await getPaymentServices();
         res.status(200).send({
             status: 'success',
-            message: "Paymnet successfull",
+            message: "Paymnet get successfully",
             data: result
         })
     } catch (error) {
         res.status(400).send({
             status: 'fail',
-            message: "Could not create the payment",
+            message: "Could not get the payment",
             error: error.message
         })
     }

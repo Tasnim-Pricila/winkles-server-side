@@ -33,6 +33,7 @@ exports.login = async (req, res, next) => {
             })
         }
         const user = await findUserByEmail(email);
+
         if(!user){
             return res.status(400).send({
                 status: "fail",
@@ -53,7 +54,7 @@ exports.login = async (req, res, next) => {
                 error: "Your account is not active",
             })
         }
-
+        // console.log(user);
         const token = generateToken(user);
         const { password: pwd, ...others } = user.toObject();
 
