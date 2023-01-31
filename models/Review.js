@@ -3,7 +3,6 @@ const validator = require('validator');
 const { ObjectId } = mongoose.Schema.Types;
 
 const reviewSchema = mongoose.Schema({
-
     rating: {
         type: Number,
         required: true
@@ -19,6 +18,9 @@ const reviewSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    avatar: {
+        type: String,
+    },
     productId: {
         type: ObjectId,
         ref: "Product",
@@ -29,5 +31,4 @@ const reviewSchema = mongoose.Schema({
 });
 
 const Review = mongoose.model("Review", reviewSchema);
-
 module.exports = Review;
