@@ -1,10 +1,9 @@
 const Payment = require('../models/Payment');
-
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 exports.createPaymentServices = async (data) => {
     const price = data.amount;
-    // const amount = price * 100;
+    const amount = price * 100;
     const paymentIntent = await stripe.paymentIntents.create({
         amount: price,
         currency: "BDT",
