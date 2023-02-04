@@ -5,8 +5,8 @@ exports.createPaymentServices = async (data) => {
     const price = data.amount;
     const amount = price * 100;
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: price,
-        currency: "BDT",
+        amount: amount,
+        currency: "usd",
         payment_method_types: ['card']
     });
     return paymentIntent;
