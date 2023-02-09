@@ -17,6 +17,7 @@ exports.createReview = async(req, res, next) => {
         })
     }
 }
+
 exports.getReviews = async(req, res, next) => {
     try {
         const result = await getReviewServices();
@@ -33,6 +34,7 @@ exports.getReviews = async(req, res, next) => {
         })
     }
 }
+
 exports.getReviewById = async(req, res, next) => {
     const { id } = req.params;
     try {
@@ -57,6 +59,7 @@ exports.getReviewById = async(req, res, next) => {
         })
     }
 }
+
 exports.getReviewByProductId = async(req, res, next) => {
     const { productId } = req.params;
     // console.log(req.params);
