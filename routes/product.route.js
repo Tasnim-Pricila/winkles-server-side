@@ -10,6 +10,10 @@ productRoute.post("/file-upload", uploader.single("image"), productController.fi
 productRoute.route('/')
     .get(productController.getProducts)
     .post(verifyToken, auth('admin'), productController.createProduct)
+
+productRoute.route('/trending')
+    .get(productController.getTrendingProducts)
+
 productRoute.route('/:id')
     .get(productController.getProductById)
     .patch(verifyToken, auth('admin'), productController.updateProduct)

@@ -1,4 +1,4 @@
-const { createProductServices, getProductServices, getProductServicesById, updateProductServices, deleteProductServices } = require("../services/product.services");
+const { createProductServices, getProductServices, getProductServicesById, updateProductServices, deleteProductServices, getTrendingProductsServices } = require("../services/product.services");
 
 exports.getProducts = async (req, res, next) => {
     try {
@@ -140,6 +140,24 @@ exports.fileUpload =  async (req, res) => {
         res.status(400).send({
             status: 'fail',
             message: "File upload Failed.",
+            error: error.message
+        })
+    }
+}
+
+exports.getTrendingProducts = async (req, res, next) => {
+    try {
+        const result = await getTrendingProductsServices();
+        res.status(200).send({
+            status: 'success',
+            message: "Data found Successfully.",
+            data: result
+        })
+
+    } catch (error) {
+        res.status(400).send({
+            status: 'fail',
+            message: "Data finding Failed.",
             error: error.message
         })
     }

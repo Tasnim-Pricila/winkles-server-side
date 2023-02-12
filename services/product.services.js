@@ -17,6 +17,7 @@ exports.createProductServices = async (data) => {
     return result;
 }
 exports.getProductServicesById = async (id) => {
+    const updateProduct = await Product.updateOne( { _id: id }, { $inc: { views: 1 }} )
     const result = await Product.findOne({_id: id}).populate('reviews');
     return result;
 }
@@ -29,4 +30,11 @@ exports.updateProductServices = async (id, data) => {
 exports.deleteProductServices = async (id) => {
     const result = await Product.deleteOne({ _id: id });
     return result;
+}
+
+exports.getTrendingProductsServices = async () => {
+    const tour = await Product.find().populate('reviews')
+        .sort({ views: -1 })
+        .limit(8)
+    return tour;
 }

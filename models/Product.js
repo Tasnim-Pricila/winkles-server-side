@@ -69,6 +69,15 @@ const productSchema = mongoose.Schema({
         type: ObjectId,
         ref: 'Review'
     }],
+    views: {
+        type: Number,
+        default: 0,
+        min: [0, 'views can not be negative']
+    },
+    discount: {
+        type: Number,
+        min: [0, 'discount can not be negative']
+    }
 }, {
     timestamps: true
 })
