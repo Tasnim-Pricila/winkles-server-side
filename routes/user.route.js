@@ -13,5 +13,4 @@ userRoute.get('/me', verifyToken, userController.getMe)
 userRoute.patch('/me', verifyToken, userController.updateUser)
 userRoute.patch('/me/:productId', verifyToken, userController.updateProduct)
 
-
 module.exports = userRoute;
