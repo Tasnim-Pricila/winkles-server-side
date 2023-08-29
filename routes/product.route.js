@@ -1,11 +1,8 @@
 const express = require('express');
 const productController  = require('../controllers/product.controller');
 const auth = require('../middleware/auth');
-const uploader = require('../middleware/uploader');
 const verifyToken = require('../middleware/verifyToken');
 const productRoute = express.Router();
-
-productRoute.post("/file-upload", uploader.single("image"), productController.fileUpload);
 
 productRoute.route('/')
     .get(productController.getProducts)

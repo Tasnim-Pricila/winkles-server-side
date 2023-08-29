@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.use('/image', express.static('image'))
 app.use('/products', productRoute)
 app.use('/brands', brandRoute)
 app.use('/blogs', blogRoute)
